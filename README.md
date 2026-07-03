@@ -14,7 +14,7 @@ This project brings together most of the core building blocks of a production cl
 
 ## 🗺️ Architecture Diagram
 
-<img width="1286" height="727" alt="image" src="https://github.com/user-attachments/assets/e5afcb8f-bc9c-4806-bbbc-f62ccf3b9a2c" />
+<img width="1294" height="726" alt="image" src="https://github.com/user-attachments/assets/2a0953bd-0364-4e81-aeb8-82ed012321dc" />
 
 ---
 
@@ -48,7 +48,7 @@ Provisioned a **Distributed Database Middleware (DDM)** instance named `ddm-word
 #### Subtask 2: Create a schema and an account
 Created an **unsharded schema** `db_wordpress` on `ddm-wordpress`, bound to the pre-provisioned `rds-wordpress` RDS instance, and confirmed it reached the **Running** state.
 
-**📷 `1-2-1schema`** — *(paste screenshot here)*
+**📷 `1-2-1schema`** — <img width="1920" height="912" alt="1-2-1schema" src="https://github.com/user-attachments/assets/b850ec22-7572-45c7-a2d7-f154cda273a1" />
 
 Then created a DDM account (`ICT_user##`) with full permissions on that schema.
 
@@ -57,11 +57,11 @@ Then created a DDM account (`ICT_user##`) with full permissions on that schema.
 #### Subtask 3: Create an ECS to access WordPress
 Launched an ECS named `wordpress-server` (General computing-plus, 2 vCPUs | 4 GB, x86) from the shared full-ECS image **Wordpress_for_ICT**, in `vpc-wordpress` with `sg-wordpress` and an auto-assigned EIP.
 
-**📷 `1-3-1wordpress-server`** — *(paste screenshot here)*
+**📷 `1-3-1wordpress-server`** — <img width="1920" height="912" alt="1-2-2account" src="https://github.com/user-attachments/assets/f1206113-bf40-44a5-bfe5-bbe147705d10" />
 
 Browsed to `http://<EIP>/wordpress` to reach the WordPress setup page.
 
-**📷 `1-3-2wordpress-setup`** — *(paste screenshot here)*
+**📷 `1-3-2wordpress-setup`** — <img width="1920" height="912" alt="1-3-1wordpress-server" src="https://github.com/user-attachments/assets/bdb4daca-b63d-4be6-89a7-d0ac65be9b02" />
 
 #### Subtask 4: Configure the WordPress database
 Pointed the WordPress install wizard at the DDM layer — using the schema name as the database, the DDM account and password, and the **DDM connection address** as the database host.
