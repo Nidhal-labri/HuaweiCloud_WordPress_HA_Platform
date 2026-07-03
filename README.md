@@ -14,7 +14,7 @@ This project brings together most of the core building blocks of a production cl
 
 ## 🗺️ Architecture Diagram
 
-*(paste architecture diagram here)*
+<img width="1286" height="727" alt="image" src="https://github.com/user-attachments/assets/e5afcb8f-bc9c-4806-bbbc-f62ccf3b9a2c" />
 
 ---
 
@@ -43,7 +43,7 @@ This project brings together most of the core building blocks of a production cl
 #### Subtask 1: Buy a DDM instance
 Provisioned a **Distributed Database Middleware (DDM)** instance named `ddm-wordpress` inside `vpc-wordpress` / `subnet-wordpress`, attached to `sg-wordpress`. Rather than pointing WordPress straight at RDS, DDM sits in front of the database as a middleware layer — decoupling the application from the underlying instance so the data tier can later be sharded or scaled without touching the site configuration.
 
-**📷 `1-1-1ddm`** — *(paste screenshot here)*
+**📷 `1-1-1ddm`** — <img width="1179" height="911" alt="1-1-1ddm" src="https://github.com/user-attachments/assets/e4ff6b4b-7002-4aa3-ae24-eb2b01b43ef5" />
 
 #### Subtask 2: Create a schema and an account
 Created an **unsharded schema** `db_wordpress` on `ddm-wordpress`, bound to the pre-provisioned `rds-wordpress` RDS instance, and confirmed it reached the **Running** state.
