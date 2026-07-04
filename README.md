@@ -1,6 +1,6 @@
 # 🌆 Huawei Cloud Project: Scalable WordPress Platform with Auto Scaling, Backup, Monitoring & Cross-VPC Migration
 
-**A highly available WordPress website on Huawei Cloud — built with DDM + RDS, ELB and Auto Scaling, backup & restore, CES/LTS monitoring, and cross-VPC server migration via SMS and a NAT Gateway.**
+**A highly available WordPress website on Huawei Cloud, built with DDM + RDS, ELB and Auto Scaling, backup & restore, CES/LTS monitoring, and cross-VPC server migration via SMS and a NAT Gateway.**
 
 This project simulates a real smart-city scenario: a WordPress website that must be **scalable**, **recoverable**, **auditable**, and **portable** across networks. The full production stack was deployed on Huawei Cloud, then layered with resilience (backup/restore + auto scaling), observability (alarms + log analytics), and a complete server migration from one VPC to another with internet access through a NAT gateway.
 
@@ -14,7 +14,7 @@ This project brings together most of the core building blocks of a production cl
 
 ## 🗺️ Architecture Diagram
 
-<img width="1294" height="726" alt="image" src="https://github.com/user-attachments/assets/2a0953bd-0364-4e81-aeb8-82ed012321dc" />
+<img width="1419" height="782" alt="image" src="https://github.com/user-attachments/assets/a3da650f-561a-4880-91b9-f220ab21c96b" />
 
 ---
 
