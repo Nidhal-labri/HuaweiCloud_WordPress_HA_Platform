@@ -243,14 +243,10 @@ Created a **VPC peering connection** (`peering-wordpress`) between `vpc-wordpres
 **📷 `5-2-1peering-wordpress`** — <img width="1920" height="912" alt="5-2-1peering-wordpress" src="https://github.com/user-attachments/assets/e6818989-1d9a-40e0-825f-b9995eeb0469" />
 
 
-A peering connection only opens the door — traffic still needs routes on both sides to actually cross. Added the **local route** pointing to the `vpc-migration` CIDR via `peering-wordpress`.
+A peering connection only opens the door — traffic still needs routes on both sides to actually cross. Added the **local route** pointing to the `vpc-migration` CIDR via `peering-wordpress`. Added the matching **peer route** back to the `vpc-wordpress` CIDR, so return traffic has a path home and the two VPCs can communicate in both directions.
 
 **📷 `5-2-2local route`** — <img width="1127" height="545" alt="5-2-2SNAT-RULE" src="https://github.com/user-attachments/assets/5435770f-018b-4e7d-8825-9635e51e0f59" />
 
-
-Added the matching **peer route** back to the `vpc-wordpress` CIDR, so return traffic has a path home and the two VPCs can communicate in both directions.
-
-**📷 `5-2-3peer route`** — *(paste screenshot here)*
 
 #### Subtask 3: Create a target ECS
 Launched the migration target ECS `ecs-migration` (2 vCPUs | 4 GB, CentOS 7.6, Pay-per-use) inside `vpc-migration` / `sg-migration`.
@@ -259,14 +255,10 @@ Launched the migration target ECS `ecs-migration` (2 vCPUs | 4 GB, CentOS 7.6, P
 
 
 #### Subtask 4: Migrate wordpress-server to another VPC
-Re-bound an EIP to `wordpress-server`, installed the **SMS migration Agent** (entering AK/SK), and confirmed the "sms agent start up successfully!" message.
+Re-bound an EIP to `wordpress-server`, installed the **SMS migration Agent** (entering AK/SK), and confirmed the "sms agent start up successfully!" message. Configured the target as the existing `ecs-migration` (Linux file-level migration, private network, no partition resizing) and started the migration.
 
 **📷 `5-4-1agent`** — <img width="1920" height="964" alt="5-4-1agent" src="https://github.com/user-attachments/assets/758c4281-8a80-40f6-80ff-eb93e6561d35" />
 
-
-Configured the target as the existing `ecs-migration` (Linux file-level migration, private network, no partition resizing) and started the migration.
-
-**📷 `5-4-2migration task`** — *(paste screenshot here)*
 
 #### Subtask 5: Configure a NAT gateway
 Created a public **NAT gateway** (`NATGW-HK`) in `vpc-migration` with two EIPs (`bandwidth-hk1` / `bandwidth-hk2`). Added a **DNAT rule** (using `bandwidth-hk2`, all ports) to map the public EIP onto the private instance — this handles *inbound* traffic, letting external users reach `ecs-migration` even though it has no EIP of its own.
